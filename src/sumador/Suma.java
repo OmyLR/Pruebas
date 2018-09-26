@@ -1,6 +1,10 @@
 package sumador;
 
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,6 +38,8 @@ public class Suma extends HttpServlet {
 			resultado = Integer.parseInt(a)+Integer.parseInt(b);
 			response.getWriter().append("Served at: ").append("La suma de los valores "+a+" y "+b+" es: "+resultado);
 		}catch(NumberFormatException e) {
+			PrintWriter out = response.getWriter();
+			out.print("Uno de los valores introducidos no es un número");
 			System.out.println(e);
 		}
 		
@@ -46,5 +52,21 @@ public class Suma extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+
+	@Override
+	public void init() throws ServletException {
+		// TODO Auto-generated method stub
+		super.init();
+		System.out.println("Se ha iniciado el servlet correctamente");
+	}
+
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		// TODO Auto-generated method stub
+		super.init(config);
+	}
+	
+	
+	
 
 }
