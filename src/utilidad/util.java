@@ -1,10 +1,6 @@
-package sumador;
+package utilidad;
 
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Suma
+ * Servlet implementation class util
  */
-//@WebServlet("/servlets/suma")
-public class Suma extends HttpServlet {
+@WebServlet("/util")
+public class util extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Suma() {
+    public util() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,19 +27,7 @@ public class Suma extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String a = request.getParameter("a");
-		String b = request.getParameter("b");
-		int resultado = 0;
-		try {
-			resultado = Integer.parseInt(a)+Integer.parseInt(b);
-			PrintWriter pr = response.getWriter();
-			pr.append("Served at: ").append("La suma de los valores "+a+" y "+b+" es: "+resultado);
-		}catch(NumberFormatException e) {
-			PrintWriter out = response.getWriter();
-			out.print("Uno de los valores introducidos no es un número");
-			System.out.println(e);
-		}
-		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -53,23 +37,13 @@ public class Suma extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
+	
 	@Override
 	public void init() throws ServletException {
 		// TODO Auto-generated method stub
 		super.init();
-		System.out.println("Parámetros Contexto desde Suma: "+getServletContext().getInitParameter("Pais"));
-		System.out.println("Se ha iniciado el servlet correctamente");
+		System.out.println("Parámetros Contexto desde Util: "+getServletContext().getInitParameter("Pais"));
+		System.out.println("Se ha iniciado el servlet Util correctamente");
 	}
-
-	@Override
-	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
-		super.init(config);
-		System.out.println(config.getInitParameter("name"));
-	}
-	
-	
-	
 
 }

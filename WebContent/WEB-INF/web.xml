@@ -9,16 +9,29 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <init-param>
-  	<param-name>name</param-name>
-  	<param-value>OmyLR</param-value>
-  </init-param>
   <servlet>
-        <servlet-name>Sumar</servlet-name>
-        <servlet-class>sumador.Suma</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Sumar</servlet-name>
-        <url-pattern>/servlets/suma</url-pattern>
-    </servlet-mapping>
+    <servlet-name>Sumar</servlet-name>
+    <servlet-class>sumador.Suma</servlet-class>
+    <init-param>
+      <param-name>name</param-name>
+      <param-value>OmyLR</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Sumar</servlet-name>
+    <url-pattern>/servlets/suma</url-pattern>
+    <url-pattern>/Formulario/servlets/suma</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Util</servlet-name>
+    <servlet-class>utilidad.util</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Util</servlet-name>
+    <url-pattern>/servlets/util</url-pattern>
+  </servlet-mapping>
+  <context-param>
+    <param-name>Pais</param-name>
+    <param-value>España</param-value>
+  </context-param>
 </web-app>
