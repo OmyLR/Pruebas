@@ -30,6 +30,8 @@ public class Suma extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Estoy en sumador");
+		getServletContext().getRequestDispatcher("/servlets/util").forward(request, response);
 		// TODO Auto-generated method stub
 		String a = request.getParameter("a");
 		String b = request.getParameter("b");
@@ -58,15 +60,15 @@ public class Suma extends HttpServlet {
 	public void init() throws ServletException {
 		// TODO Auto-generated method stub
 		super.init();
-		System.out.println("Parámetros Contexto desde Suma: "+getServletContext().getInitParameter("Pais"));
-		System.out.println("Se ha iniciado el servlet correctamente");
+		//System.out.println("Parámetros Contexto desde Suma: "+getServletContext().getInitParameter("Pais"));
+		//System.out.println("Se ha iniciado el servlet correctamente");
 	}
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		// TODO Auto-generated method stub
 		super.init(config);
-		System.out.println(config.getInitParameter("name"));
+		//System.out.println(config.getInitParameter("name"));
 	}
 	
 	

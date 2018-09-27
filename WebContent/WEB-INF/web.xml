@@ -29,6 +29,7 @@
   <servlet-mapping>
     <servlet-name>Util</servlet-name>
     <url-pattern>/servlets/util</url-pattern>
+    <url-pattern>/Formulario/servlets/util</url-pattern>
   </servlet-mapping>
   <context-param>
     <param-name>Pais</param-name>
