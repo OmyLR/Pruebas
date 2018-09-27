@@ -7,9 +7,11 @@ import java.io.PrintWriter;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Suma
@@ -30,6 +32,15 @@ public class Suma extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		if(session.getAttribute("usuario") == null) {
+			session.setAttribute("usuario", "OmyLR");
+		}
+		Cookie[] coockies = request.getCookies();
+		for(int i=0; i<coockies.length; i++) {
+			System.out.println(coockies[i].getValue());
+		}
+		System.out.println("La sesión actual es... "+session.getId());
 		System.out.println("Estoy en sumador");
 		getServletContext().getRequestDispatcher("/servlets/util").forward(request, response);
 		// TODO Auto-generated method stub
